@@ -1,0 +1,38 @@
+div {
+    color: white;
+    background-color: red;
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+    background-color: green;
+    font-size: 18px;
+}
+
+button {
+    background-color: orange;
+    font-size: 18px;
+}
+
+.odd {
+    background-color: pink;
+    font-family: Verdana, "DejaVu Sans", sans-serif;
+}
+
+.second {
+    color: blue;
+    font-size: 36px;
+}
+
+.odd.third {
+    font-size: 24px;
+}
+
+.fourth{
+    background-color: lightgreen;
+    font-size: 24px;
+    font-weight: bold;
+}
