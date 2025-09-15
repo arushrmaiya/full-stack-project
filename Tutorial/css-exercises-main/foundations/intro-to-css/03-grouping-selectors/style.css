@@ -1,0 +1,15 @@
+/* Add CSS Styling */
+
+.selectYellow, .selectBlack {
+    font-size: 28px;
+    font-family: Helvetica, 'Times New Roman', sans-serif;
+}
+
+.selectBlack{
+    background-color: black;
+    color: white;
+}
+
+.selectYellow{
+    background-color: yellow;
+}
