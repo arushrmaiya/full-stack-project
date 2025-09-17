@@ -1,1 +1,1 @@
-Trial run at Odin Project
+All the files I used to learn Full-Stack dev

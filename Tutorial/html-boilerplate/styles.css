@@ -50,3 +50,18 @@ button {
 .selectYellow{
     background-color: yellow;
 }
+
+ol{
+    border: 2px solid blue;
+}
+
+li{
+    margin: 5px;
+    background: lightblue;
+    list-style: none;
+    padding: 0.2em;
+    display: inline-block;
+    height:25px;
+    width:150px;
+    text-align: center;
+}
