@@ -10,13 +10,17 @@ function setboard(n_grid){
         myNode[0].parentNode.removeChild(myNode[0]);
     }
 
+    const size = Math.floor(640/n_grid);
+
     for(let i = 0; i<n_grid*n_grid;i++){
         let div_ = document.createElement("div");
         div_.setAttribute("class", "pixel");
         div_.style.border = "1px solid #000000";
-        div_.style.width = `calc(100%/${n_grid+1})`;
-        div_.style.height = "0";
-        div_.style.paddingBottom = `calc(100%/${n_grid+1})`;
+        div_.style.width = `${size}px`;
+        console.log(div_.style.width);
+        div_.style.height = `${size}px`;
+        div_.style.boxSizing = "border-box";
+        // div_.style.paddingBottom = `calc(300/${n_grid+1})px`;
         container.appendChild(div_);
 }
 
@@ -30,6 +34,8 @@ function setboard(n_grid){
 }
 
 let n_grid = 0;
+
+setboard(16);
 
 grid_button.addEventListener('click', ()=>{let num_grid = window.prompt("Choose a grid size"); n_grid = parseInt(num_grid); setboard(n_grid);});
 
