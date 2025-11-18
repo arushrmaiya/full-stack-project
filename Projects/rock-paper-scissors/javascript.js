@@ -4,13 +4,24 @@ rps_map.set("rock", 0);
 rps_map.set("paper", 1);
 rps_map.set("scissors", 2);
 
+let humanScore = 0;
+let compScore = 0;
+
+
+const display_div = document.querySelector("#display");
+
+const p1 = document.createElement("p");
+display_div.appendChild(p1);
+
+p1.textContent = `HUMAN SCORE: ${humanScore}    COMPUTER SCORE: ${compScore}`;  
 function getByValue(searchValue) {
+//    console.log(searchValue);
   for (let [key, value] of rps_map.entries()) {
+    // console.log(key, value);
     if (value === searchValue)
       return key;
   }
 }
-
 
 function getComputerChoice(){
     return Math.floor(Math.random() * (2 - 0 + 1) + 0);
@@ -50,38 +61,55 @@ function playRound(human, computer){
 
 }
 
-function playGame(){
-    let humanScore = 0;
-    let compScore = 0;
+function playGame(human){
 
-    for(let i = 0; i<5; i++){
-        let comp = getComputerChoice();
-        let human = getHumanChoice();
-        let winner = playRound(human, comp);
+    let comp = getComputerChoice();
 
-        if(winner == -1){
-            compScore++;
-        }
-        else if (winner == 1){
-            humanScore++;
-        }
+    let winner = playRound(human, comp);
 
-        console.log(`Human Score: ${humanScore}, Computer Score: ${compScore}`);
+    if(winner == -1){
+        compScore++;
     }
-
-    if(humanScore>compScore){
-        console.log("Humanity Wins");
+    else if (winner == 1){
+        humanScore++;
     }
+    
+    p1.textContent = `HUMAN SCORE: ${humanScore}    COMPUTER SCORE: ${compScore}`;
 
-    else if (compScore>humanScore){
-        console.log("Computer Wins");
-    }
-
-    else{
-        console.log("Tie");
-    }
+    if(humanScore == 5){
+        p1.textContent = "YOU WIN";
+        humanScore = 0;
+        compScore = 0;
 }
 
-playGame();
+    else if(compScore == 5){
+        p1.textContent = "COMPUTER WINS";
+        humanScore = 0;
+        compScore = 0;
+}
+
+}
+
+// playGame();
+
+const rock_button = document.querySelector("#rock");
+const paper_button = document.querySelector("#paper");
+const scissor_button = document.querySelector("#scissors");
+
+
+
+rock_button.addEventListener('click', ()=>{
+    playGame(0);
+})
+
+paper_button.addEventListener('click', ()=>{
+    playGame(1);
+})
+
+scissor_button.addEventListener('click', ()=>{
+    playGame(2);
+})
+
+
 
 
