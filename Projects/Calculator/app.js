@@ -56,6 +56,12 @@ function infix_to_postfix(){
             postfix_str+=c;
             console.log(c);
         }
+        else if(c === "-" && (i === 0 || oplist.includes(infix_str[i-1]))){
+            postfix_str += infix_str[i];
+            postfix_str += infix_str[i+1];
+            i += 1;
+            console.log(postfix_str);
+        }
         else{
             while (!op_stack.empty && prec_map.get(op_stack[-1])>=prec_map.get(c)){
                 postfix_str += " ";
@@ -80,6 +86,7 @@ function infix_to_postfix(){
 
 function evaluate_postfix(){
     const exp_array = postfix_str.split(" ");
+    console.log(exp_array);
     for (let i = 0; i<exp_array.length; i++){
         if(!(oplist.includes(exp_array[i]))){
             operand_stack.push(exp_array[i]);
@@ -126,6 +133,7 @@ function addNums(){
                 console.log(res);
                 display.textContent = res.toString();
                 infix_str = res.toString();
+                postfix_str = "";
             });
         }
     }
