@@ -122,11 +122,11 @@ function addNums(){
     const listOps = document.querySelectorAll(".op");
 
     for(let i = 0; i<listOps.length; i++){
-        if(listOps[i].textContent !== "="){
+        if(oplist.includes(listOps[i].textContent)){
             listOps[i].addEventListener('click', ()=>{infix_str = infix_str + listOps[i].textContent; display.textContent = infix_str; console.log(infix_str)})
         }
 
-        else{
+        else if (listOps[i].textContent === "="){
             listOps[i].addEventListener('click', ()=>{
                 infix_to_postfix();
                 let res = evaluate_postfix();
@@ -135,6 +135,16 @@ function addNums(){
                 infix_str = res.toString();
                 postfix_str = "";
             });
+        }
+
+        else{
+            listOps[i].addEventListener('click', ()=>{
+                postfix_str = "";
+                infix_str = "";
+                op_stack = [];
+                operand_stack = [];
+                display.textContent = infix_str;
+            })
         }
     }
 }
