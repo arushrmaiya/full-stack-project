@@ -1,0 +1,33 @@
+#calculator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#display{
+    border: 1px solid black;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+#inputs{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+#nums{
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    justify-content: center;
+}
+
+#ops{
+    display: flex;
+    flex-direction: column;
+}
